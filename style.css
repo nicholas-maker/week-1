@@ -1,0 +1,101 @@
+/* --- ОБЩИЕ СТИЛИ (для всех страниц) --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Класс для фона меню (чтобы оно визуально отличалось) */
+.menu-body {
+    background-color: #f4f4f9; 
+}
+
+/* Класс для фона контента (белый) */
+.content-body {
+    background-color: #ffffff;
+}
+
+/* --- СТИЛИ ДЛЯ МЕНЮ --- */
+h3 {
+    color: #2c3e50;
+    text-align: center;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 10px;
+}
+
+.menu-link {
+    display: block;
+    background-color: #fff;
+    color: #333;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    transition: 0.3s;
+}
+
+.menu-link:hover {
+    background-color: #4CAF50;
+    color: white;
+    padding-left: 20px; /* Эффект сдвига */
+}
+
+/* --- СТИЛИ ДЛЯ ГЛАВНОЙ КАРТИНКИ --- */
+.main-img {
+    border: 5px solid #fff;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    max-width: 100%;
+}
+
+/* --- СТИЛИ ДЛЯ ФОРМ --- */
+.form-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.form-section {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #ccc;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Чтобы отступы не ломали ширину */
+}
+
+.btn {
+    background-color: #008CBA;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #007bb5;
+}
+
+/* --- СТИЛИ ДЛЯ ЗАГЛУШЕК (1.html и др) --- */
+.card {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+}
