@@ -1,16 +1,35 @@
 <html>
 <head>
-    <title>Главная</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="content-body" style="text-align: center;">
-    <h1>Вітаємо на нашому сайті!</h1>
+<body class="content-body" style="text-align: center;" onload="startTime()">
+
+    <h1 style="color: #333;">Вітаємо на сайті!</h1>
     
-    <img src="1.gif" alt="Приветствие" class="main-img"> 
-    
-    <p style="margin-top: 20px;">
-        Версія сайту: <b>Тиждень 2 (External CSS)</b>
-    </p>
+    <br>
+
+    <div class="date-widget">
+        <div id="clock" class="time-text">00:00:00</div>
+        <div id="date" class="date-text">Завантаження...</div>
+    </div>
+
+    <script>
+        function startTime() {
+            const today = new Date();
+            let h = today.getHours();
+            let m = today.getMinutes();
+            let s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('clock').innerHTML =  h + ":" + m + ":" + s;
+            
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('date').innerHTML = today.toLocaleDateString('uk-UA', options);
+            
+            setTimeout(startTime, 1000);
+        }
+        function checkTime(i) { if (i < 10) {i = "0" + i}; return i; }
+    </script>
 </body>
 </html>

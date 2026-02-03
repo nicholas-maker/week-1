@@ -1,4 +1,4 @@
-/* --- ОБЩИЕ СТИЛИ (для всех страниц) --- */
+/* --- ОСНОВНЫЕ СТИЛИ --- */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
@@ -6,17 +6,11 @@ body {
     padding: 20px;
 }
 
-/* Класс для фона меню (чтобы оно визуально отличалось) */
-.menu-body {
-    background-color: #f4f4f9; 
-}
+/* Фоны */
+.menu-body { background-color: #f4f4f9; border-right: 1px solid #ddd; }
+.content-body { background-color: #ffffff; }
 
-/* Класс для фона контента (белый) */
-.content-body {
-    background-color: #ffffff;
-}
-
-/* --- СТИЛИ ДЛЯ МЕНЮ --- */
+/* Меню */
 h3 {
     color: #2c3e50;
     text-align: center;
@@ -28,74 +22,92 @@ h3 {
     display: block;
     background-color: #fff;
     color: #333;
-    padding: 10px 15px;
-    margin-bottom: 10px;
+    padding: 12px 15px;
+    margin-bottom: 8px;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 6px;
     border: 1px solid #ddd;
     transition: 0.3s;
+    font-weight: 500;
 }
 
 .menu-link:hover {
     background-color: #4CAF50;
     color: white;
-    padding-left: 20px; /* Эффект сдвига */
+    padding-left: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* --- СТИЛИ ДЛЯ ГЛАВНОЙ КАРТИНКИ --- */
-.main-img {
-    border: 5px solid #fff;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    border-radius: 10px;
-    max-width: 100%;
-}
-
-/* --- СТИЛИ ДЛЯ ФОРМ --- */
-.form-container {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
+/* Карточка профиля */
+.profile-card {
+    background: white;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    text-align: center;
     border: 1px solid #eee;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
-.form-section {
+.profile-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #4CAF50;
     margin-bottom: 20px;
-    padding-bottom: 15px;
-    border-bottom: 1px dashed #ccc;
 }
 
-input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box; /* Чтобы отступы не ломали ширину */
+/* Навыки */
+.skills-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 25px;
 }
 
+.skill-tag {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+/* Часы на главной */
+.date-widget {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 25px;
+    border-radius: 12px;
+    display: inline-block;
+    margin-top: 30px;
+    box-shadow: 0 10px 20px rgba(118, 75, 162, 0.3);
+}
+
+.time-text { font-size: 2.5em; font-weight: bold; letter-spacing: 1px; }
+.date-text { font-size: 1.1em; opacity: 0.9; margin-top: 5px; }
+
+/* Формы */
+.form-container {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 30px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
 .btn {
     background-color: #008CBA;
     color: white;
-    padding: 12px 20px;
+    padding: 12px;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
+    width: 100%;
     cursor: pointer;
     font-size: 16px;
-    width: 100%;
-    transition: 0.3s;
 }
-
-.btn:hover {
-    background-color: #007bb5;
-}
-
-/* --- СТИЛИ ДЛЯ ЗАГЛУШЕК (1.html и др) --- */
-.card {
-    background: white;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    text-align: center;
-}
+.btn:hover { background-color: #007bb5; }
