@@ -3,12 +3,38 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="menu-body">
+<body class="menu-body fade-in">
     <h3>НАВІГАЦІЯ</h3>
     <br>
+    
     <a href="sait.html" target="sait" class="menu-link">🏠 Головна</a>
     <a href="bio.html" target="sait" class="menu-link">👤 Автобіографія</a>
     <a href="like.html" target="sait" class="menu-link">🎮 Уподобання</a>
     <a href="form.html" target="sait" class="menu-link">📝 Опитування</a>
+
+    <button class="theme-btn" onclick="toggleTheme()">🌙 Нічний режим</button>
+
+    <script>
+        function toggleTheme() {
+            // 1. Меняем тему в меню
+            document.body.classList.toggle('dark-mode');
+            
+            // 2. Меняем тему в соседнем окне (фрейме)
+            try {
+                var contentFrame = parent.frames['sait'].document.body;
+                contentFrame.classList.toggle('dark-mode');
+            } catch (e) {
+                console.log("Фрейм еще не загрузился");
+            }
+
+            // 3. Меняем текст кнопки
+            var btn = document.querySelector('.theme-btn');
+            if (document.body.classList.contains('dark-mode')) {
+                btn.innerHTML = "☀️ Денний режим";
+            } else {
+                btn.innerHTML = "🌙 Нічний режим";
+            }
+        }
+    </script>
 </body>
 </html>

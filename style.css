@@ -1,53 +1,114 @@
-/* --- ОСНОВНЫЕ СТИЛИ --- */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #333;
-    margin: 0;
-    padding: 20px;
+/* --- НАЛАШТУВАННЯ КОЛЬОРІВ (Змінні) --- */
+:root {
+    /* Світла тема (за замовчуванням) */
+    --bg-body: #ffffff;
+    --bg-menu: #f4f4f9;
+    --text-main: #333333;
+    --text-sec: #555555;
+    --card-bg: #ffffff;
+    --border-color: #ddd;
+    --accent: #4CAF50;
+    --shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-/* Фоны */
-.menu-body { background-color: #f4f4f9; border-right: 1px solid #ddd; }
-.content-body { background-color: #ffffff; }
+/* Темна тема (активується через JS) */
+.dark-mode {
+    --bg-body: #121212;
+    --bg-menu: #1e1e1e;
+    --text-main: #e0e0e0;
+    --text-sec: #aaaaaa;
+    --card-bg: #2d2d2d;
+    --border-color: #444;
+    --accent: #66bb6a;
+    --shadow: 0 4px 6px rgba(0,0,0,0.5);
+}
 
-/* Меню */
+/* --- ОСНОВНІ СТИЛІ --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-main);
+    background-color: var(--bg-body);
+    margin: 0;
+    padding: 20px;
+    transition: background-color 0.5s, color 0.5s; /* Плавний перехід кольору */
+}
+
+/* Класи фону */
+.menu-body { 
+    background-color: var(--bg-menu); 
+    border-right: 1px solid var(--border-color); 
+    min-height: 100vh;
+}
+.content-body { 
+    background-color: var(--bg-body); 
+}
+
+/* --- АНІМАЦІЯ ПОЯВИ (Fade In) --- */
+.fade-in {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- МЕНЮ --- */
 h3 {
-    color: #2c3e50;
+    color: var(--text-main);
     text-align: center;
-    border-bottom: 2px solid #4CAF50;
+    border-bottom: 2px solid var(--accent);
     padding-bottom: 10px;
 }
 
 .menu-link {
     display: block;
-    background-color: #fff;
-    color: #333;
+    background-color: var(--card-bg);
+    color: var(--text-main);
     padding: 12px 15px;
     margin-bottom: 8px;
     text-decoration: none;
     border-radius: 6px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     transition: 0.3s;
-    font-weight: 500;
 }
 
 .menu-link:hover {
-    background-color: #4CAF50;
+    background-color: var(--accent);
     color: white;
     padding-left: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-color: var(--accent);
 }
 
-/* Карточка профиля */
-.profile-card {
-    background: white;
-    max-width: 600px;
-    margin: 30px auto;
-    padding: 40px;
+/* Кнопка перемикання теми */
+.theme-btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background: transparent;
+    border: 2px solid var(--accent);
+    color: var(--text-main);
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.theme-btn:hover {
+    background: var(--accent);
+    color: white;
+}
+
+/* --- КАРТКИ (Профіль, Форми) --- */
+.profile-card, .form-container, .date-widget {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+    color: var(--text-main);
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    padding: 30px;
+    max-width: 600px;
+    margin: 20px auto;
     text-align: center;
-    border: 1px solid #eee;
 }
 
 .profile-avatar {
@@ -55,59 +116,44 @@ h3 {
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid #4CAF50;
+    border: 4px solid var(--accent);
     margin-bottom: 20px;
 }
 
-/* Навыки */
-.skills-container {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-top: 25px;
-}
-
 .skill-tag {
-    background-color: #e8f5e9;
-    color: #2e7d32;
+    background-color: var(--bg-menu);
+    color: var(--accent);
+    border: 1px solid var(--accent);
     padding: 8px 16px;
     border-radius: 20px;
     font-weight: bold;
-    font-size: 0.9em;
+    display: inline-block;
+    margin: 5px;
 }
 
-/* Часы на главной */
+/* --- ГОДИННИК --- */
 .date-widget {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 25px;
-    border-radius: 12px;
-    display: inline-block;
-    margin-top: 30px;
-    box-shadow: 0 10px 20px rgba(118, 75, 162, 0.3);
+    color: white; /* Завжди білий текст на градієнті */
 }
+.time-text { font-size: 2.5em; font-weight: bold; }
 
-.time-text { font-size: 2.5em; font-weight: bold; letter-spacing: 1px; }
-.date-text { font-size: 1.1em; opacity: 0.9; margin-top: 5px; }
-
-/* Формы */
-.form-container {
-    max-width: 400px;
-    margin: 20px auto;
-    padding: 30px;
-    border: 1px solid #eee;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+/* --- ФОРМИ --- */
+input[type="text"] {
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
 }
 .btn {
-    background-color: #008CBA;
+    background-color: var(--accent);
     color: white;
     padding: 12px;
     border: none;
     border-radius: 5px;
     width: 100%;
     cursor: pointer;
-    font-size: 16px;
+    margin-top: 10px;
 }
-.btn:hover { background-color: #007bb5; }
